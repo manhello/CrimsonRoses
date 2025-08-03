@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowDown, Play, Star } from "lucide-react";
 import tailsImage from "@assets/image_1754250752938.png";
 import sonicImage from "@assets/image_1754250990366.png";
+import knucklesImage from "@assets/image_1754251533990.png";
+import shadowImage from "@assets/image_1754251612501.png";
 
 // Portfolio data
 const portfolioItems = [
@@ -22,27 +24,17 @@ const portfolioItems = [
   },
   {
     id: '3',
-    title: 'Cosmic Wizard Hat',
+    title: 'Knuckles',
     type: 'hat' as const,
-    description: 'A mystical hat that glows with cosmic energy, perfect for magical adventures.',
+    description: 'How dare you attack me in my hour of sorrow!',
+    image: knucklesImage,
   },
   {
     id: '4',
-    title: 'Emerald Armor',
-    type: 'clothing' as const,
-    description: 'Protective armor crafted from pure emerald crystals.',
-  },
-  {
-    id: '5',
-    title: 'Shadow Mask',
+    title: 'Shadow Buddy',
     type: 'hat' as const,
-    description: 'Mysterious mask that conceals the wearer in shadows.',
-  },
-  {
-    id: '6',
-    title: 'Royal Cape',
-    type: 'clothing' as const,
-    description: 'Elegant cape fit for royalty, with golden trim.',
+    description: 'Poetry is an echo, asking a shadow to dance.',
+    image: shadowImage,
   },
 ];
 
@@ -168,10 +160,10 @@ const PortfolioGallery = () => {
       <div className="container mx-auto px-4 mb-8">
         <div className="text-center space-y-4">
           <h2 className="text-5xl font-bold">
-            <span className="text-gradient">Our Portfolio</span>
+            <span className="text-gradient">Our Collection</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Discover our collection of premium Roblox UGC items, crafted with precision and creativity.
+            Discover our collection of unique and high-quality UGC assets.
           </p>
         </div>
       </div>
@@ -220,19 +212,20 @@ const Hero = () => {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-900/20 backdrop-blur-sm border border-red-500/30 rounded-full text-sm text-foreground">
           <Star className="w-4 h-4 text-red-400 animate-glow" />
-          <span>Professional Roblox UGC Creators</span>
+          <span>The go to spot for UGCs</span>
         </div>
 
         {/* Main heading */}
         <div className="space-y-4">
           <h1 className="text-6xl md:text-8xl font-bold tracking-tight">
-            <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent glow-text">UGC</span>
+            <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent glow-text">Crimson</span>
             <br />
-            <span className="text-white">Masters</span>
+            <span className="text-white">HOTEL</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Crafting premium Roblox User Generated Content that brings imagination to life. 
-            Explore our collection of meticulously designed 3D assets.
+            Developing premium UGC assets for our followers.
+
+            Take a look at our collection!
           </p>
         </div>
 
