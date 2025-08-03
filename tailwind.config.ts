@@ -99,6 +99,10 @@ export default {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-10px)" },
         },
+        "spin": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -108,6 +112,7 @@ export default {
         "fade-in-up": "fade-in-up 0.8s ease-out",
         "glow": "glow 2s ease-in-out infinite alternate",
         "bounce": "bounce 2s infinite",
+        "spin": "spin 4s linear infinite",
       },
     },
   },

@@ -1,11 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { Canvas, extend } from '@react-three/fiber';
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Play, Star } from "lucide-react";
-import * as THREE from 'three';
-
-// Extend React Three Fiber with Three.js objects
-extend(THREE);
 
 // Portfolio data
 const portfolioItems = [
@@ -35,53 +30,7 @@ const portfolioItems = [
   },
 ];
 
-// 3D Model Component
-const ThreeDModel = ({ type, isHovered, index }: { type: 'hat' | 'clothing', isHovered: boolean, index: number }) => {
-  const meshRef = useRef<THREE.Mesh>(null);
 
-  useEffect(() => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x = 0;
-      meshRef.current.rotation.y = index * 0.5;
-    }
-  }, [index]);
-
-  useEffect(() => {
-    if (meshRef.current) {
-      const animate = () => {
-        if (meshRef.current) {
-          meshRef.current.rotation.y += 0.01;
-        }
-        requestAnimationFrame(animate);
-      };
-      animate();
-    }
-  }, []);
-
-  if (type === 'hat') {
-    return (
-      <mesh 
-        ref={meshRef}
-        scale={isHovered ? 1.2 : 1}
-        rotation={[0, 0, 0]}
-      >
-        <coneGeometry args={[1, 2, 8]} />
-        <meshStandardMaterial color={isHovered ? "#8B5CF6" : "#6366F1"} />
-      </mesh>
-    );
-  } else {
-    return (
-      <mesh 
-        ref={meshRef}
-        scale={isHovered ? 1.2 : 1}
-        rotation={[0, 0, 0]}
-      >
-        <boxGeometry args={[1.5, 2, 0.3]} />
-        <meshStandardMaterial color={isHovered ? "#10B981" : "#059669"} />
-      </mesh>
-    );
-  }
-};
 
 // Portfolio Item Component
 interface PortfolioItemProps {
@@ -106,24 +55,42 @@ const PortfolioItem = ({
       ${isHovered ? 'scale-110 shadow-2xl' : 'scale-100'}
       hover:shadow-[0_0_30px_rgba(192,132,252,0.3)]
     `}>
-      {/* 3D Canvas */}
-      <div className="h-48 w-full mb-4 rounded-xl overflow-hidden bg-secondary/20">
-        <Canvas
-          camera={{ position: [0, 0, 5], fov: 75 }}
-          dpr={[1, 2]}
-          shadows
-        >
-          <ambientLight intensity={0.4} />
-          <directionalLight 
-            position={[10, 10, 5]} 
-            intensity={1} 
-            castShadow
-          />
-          <pointLight position={[-10, -10, -10]} intensity={0.5} />
-          <pointLight position={[10, 10, 10]} intensity={0.5} />
-          
-          <ThreeDModel type={type} isHovered={isHovered} index={index} />
-        </Canvas>
+      {/* Isometric View */}
+      <div className="h-48 w-full mb-4 rounded-xl overflow-hidden bg-gradient-to-br from-secondary/30 to-secondary/10 relative">
+        <div className="absolute inset-0 flex items-center justify-center">
+          {type === 'hat' ? (
+            <div className={`relative transition-all duration-500 ${isHovered ? 'scale-110' : 'scale-100'}`}>
+              {/* Hat - Isometric View */}
+              <div className="relative transform" style={{ transform: 'rotateX(25deg) rotateY(15deg)' }}>
+                {/* Hat brim */}
+                <div className={`w-20 h-4 bg-gradient-to-r from-purple-500 to-purple-700 rounded-full transform transition-colors duration-300 ${isHovered ? 'from-purple-400 to-purple-600' : ''}`} />
+                {/* Hat cone */}
+                <div className={`w-12 h-16 mx-auto -mt-2 bg-gradient-to-b from-purple-400 to-purple-800 transition-colors duration-300 ${isHovered ? 'from-purple-300 to-purple-700' : ''}`} 
+                     style={{ clipPath: 'polygon(20% 100%, 80% 100%, 50% 0%)' }} />
+                {/* Hat sparkles */}
+                <div className="absolute top-2 left-1/2 w-1 h-1 bg-cyan-300 rounded-full animate-pulse" />
+                <div className="absolute top-4 right-1/4 w-1 h-1 bg-yellow-300 rounded-full animate-pulse delay-500" />
+              </div>
+            </div>
+          ) : (
+            <div className={`relative transition-all duration-500 ${isHovered ? 'scale-110' : 'scale-100'}`}>
+              {/* Clothing - Isometric Chest Armor */}
+              <div className="relative transform" style={{ transform: 'rotateX(15deg) rotateY(-10deg)' }}>
+                {/* Chest plate */}
+                <div className={`w-16 h-20 bg-gradient-to-br from-emerald-400 to-emerald-700 rounded-lg transition-colors duration-300 ${isHovered ? 'from-emerald-300 to-emerald-600' : ''}`} />
+                {/* Shoulder guards */}
+                <div className={`absolute -top-2 -left-2 w-6 h-8 bg-gradient-to-br from-emerald-500 to-emerald-800 rounded-lg transition-colors duration-300 ${isHovered ? 'from-emerald-400 to-emerald-700' : ''}`} />
+                <div className={`absolute -top-2 -right-2 w-6 h-8 bg-gradient-to-br from-emerald-500 to-emerald-800 rounded-lg transition-colors duration-300 ${isHovered ? 'from-emerald-400 to-emerald-700' : ''}`} />
+                {/* Gem centerpiece */}
+                <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-gradient-to-br from-cyan-300 to-blue-500 rounded-full animate-pulse" />
+              </div>
+            </div>
+          )}
+        </div>
+        {/* Item type indicator */}
+        <div className="absolute top-2 right-2 text-xs text-muted-foreground bg-black/20 px-2 py-1 rounded">
+          {type === 'hat' ? 'HAT' : 'ARMOR'}
+        </div>
       </div>
 
       {/* Content */}
