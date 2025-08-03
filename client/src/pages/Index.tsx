@@ -2,10 +2,10 @@ import { useState, useEffect, useRef } from 'react';
 import { Canvas, extend } from '@react-three/fiber';
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Play, Star } from "lucide-react";
-import { Mesh, BoxGeometry, ConeGeometry, MeshStandardMaterial } from 'three';
+import * as THREE from 'three';
 
 // Extend React Three Fiber with Three.js objects
-extend({ Mesh, BoxGeometry, ConeGeometry, MeshStandardMaterial });
+extend(THREE);
 
 // Portfolio data
 const portfolioItems = [
@@ -37,7 +37,7 @@ const portfolioItems = [
 
 // 3D Model Component
 const ThreeDModel = ({ type, isHovered, index }: { type: 'hat' | 'clothing', isHovered: boolean, index: number }) => {
-  const meshRef = useRef<any>();
+  const meshRef = useRef<THREE.Mesh>(null);
 
   useEffect(() => {
     if (meshRef.current) {
@@ -46,33 +46,41 @@ const ThreeDModel = ({ type, isHovered, index }: { type: 'hat' | 'clothing', isH
     }
   }, [index]);
 
-  const getGeometry = () => {
-    if (type === 'hat') {
-      return (
-        <>
-          <coneGeometry args={[1, 2, 8]} />
-          <meshStandardMaterial color={isHovered ? "#8B5CF6" : "#6366F1"} />
-        </>
-      );
-    } else {
-      return (
-        <>
-          <boxGeometry args={[1.5, 2, 0.3]} />
-          <meshStandardMaterial color={isHovered ? "#10B981" : "#059669"} />
-        </>
-      );
+  useEffect(() => {
+    if (meshRef.current) {
+      const animate = () => {
+        if (meshRef.current) {
+          meshRef.current.rotation.y += 0.01;
+        }
+        requestAnimationFrame(animate);
+      };
+      animate();
     }
-  };
+  }, []);
 
-  return (
-    <mesh 
-      ref={meshRef}
-      scale={isHovered ? 1.2 : 1}
-      rotation={[0, 0, 0]}
-    >
-      {getGeometry()}
-    </mesh>
-  );
+  if (type === 'hat') {
+    return (
+      <mesh 
+        ref={meshRef}
+        scale={isHovered ? 1.2 : 1}
+        rotation={[0, 0, 0]}
+      >
+        <coneGeometry args={[1, 2, 8]} />
+        <meshStandardMaterial color={isHovered ? "#8B5CF6" : "#6366F1"} />
+      </mesh>
+    );
+  } else {
+    return (
+      <mesh 
+        ref={meshRef}
+        scale={isHovered ? 1.2 : 1}
+        rotation={[0, 0, 0]}
+      >
+        <boxGeometry args={[1.5, 2, 0.3]} />
+        <meshStandardMaterial color={isHovered ? "#10B981" : "#059669"} />
+      </mesh>
+    );
+  }
 };
 
 // Portfolio Item Component
@@ -141,7 +149,7 @@ const PortfolioGallery = () => {
       if (scrollContainer.scrollLeft >= (scrollContainer.scrollWidth - scrollContainer.clientWidth)) {
         scrollContainer.scrollLeft = 0;
       } else {
-        scrollContainer.scrollLeft += 0.5;
+        scrollContainer.scrollLeft += 2;
       }
     };
 
