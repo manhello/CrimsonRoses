@@ -37,7 +37,7 @@ export const Hero = () => {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
+        <div className="flex justify-center pt-8">
           <Button 
             onClick={scrollToPortfolio}
             className="btn-neon px-8 py-6 text-lg rounded-full"
@@ -46,17 +46,10 @@ export const Hero = () => {
             <Play className="w-5 h-5 mr-2" />
             View Portfolio
           </Button>
-          <Button 
-            variant="secondary" 
-            className="px-8 py-6 text-lg rounded-full card-cosmic border-primary/20"
-            size="lg"
-          >
-            Learn More
-          </Button>
         </div>
 
         {/* Scroll indicator */}
-        <div className="pt-16">
+        <div className="pt-20">
           <div className="flex flex-col items-center gap-2 animate-bounce">
             <span className="text-sm text-muted-foreground">Scroll to explore</span>
             <ArrowDown className="w-5 h-5 text-accent" />

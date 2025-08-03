@@ -40,14 +40,14 @@ export const PortfolioGallery = () => {
     if (!scrollContainer || isPaused) return;
 
     const scroll = () => {
-      if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+      if (scrollContainer.scrollLeft >= (scrollContainer.scrollWidth - scrollContainer.clientWidth)) {
         scrollContainer.scrollLeft = 0;
       } else {
-        scrollContainer.scrollLeft += 1;
+        scrollContainer.scrollLeft += 0.5;
       }
     };
 
-    const interval = setInterval(scroll, 50);
+    const interval = setInterval(scroll, 30);
     return () => clearInterval(interval);
   }, [isPaused]);
 
@@ -65,8 +65,8 @@ export const PortfolioGallery = () => {
   const duplicatedItems = [...portfolioItems, ...portfolioItems];
 
   return (
-    <section id="portfolio" className="py-20 overflow-hidden">
-      <div className="container mx-auto px-4 mb-12">
+    <section id="portfolio" className="py-16 overflow-hidden">
+      <div className="container mx-auto px-4 mb-8">
         <div className="text-center space-y-4">
           <h2 className="text-5xl font-bold">
             <span className="text-gradient">Our Portfolio</span>
