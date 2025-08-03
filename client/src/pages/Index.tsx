@@ -312,7 +312,7 @@ const Hero = () => {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex justify-center pt-8">
+        <div className="flex justify-center gap-4 pt-8">
           <Button 
             onClick={scrollToPortfolio}
             className="btn-neon px-8 py-6 text-lg rounded-full"
@@ -320,6 +320,21 @@ const Hero = () => {
           >
             <Play className="w-5 h-5 mr-2" />
             View Portfolio
+          </Button>
+          <Button 
+            asChild
+            className="px-8 py-6 text-lg rounded-full bg-red-600 hover:bg-red-700 text-white"
+            size="lg"
+          >
+            <a 
+              href="https://www.roblox.com/users/75111796/profile" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center"
+            >
+              <SiRoblox className="w-5 h-5 mr-2" />
+              View Profile
+            </a>
           </Button>
         </div>
 
