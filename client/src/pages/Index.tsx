@@ -228,7 +228,7 @@ const PortfolioGallery = ({ title = "Our Collection", description = "Discover ou
   const duplicatedItems = [...items, ...items];
 
   return (
-    <section className="py-16 overflow-hidden">
+    <section id={title === "Crimson Hotel" ? "portfolio" : undefined} className="py-16 overflow-hidden">
       <div className="container mx-auto px-4 mb-8">
         <div className="text-center space-y-4">
           <h2 className="text-5xl font-bold">
@@ -292,7 +292,7 @@ const Hero = () => {
           <h1 className="text-6xl md:text-8xl font-bold tracking-tight">
             <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent glow-text">Crimson</span>
             <br />
-            <span className="text-white">HOTEL</span>
+            <span className="text-white">Roses</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Developing premium UGC assets for our followers.
