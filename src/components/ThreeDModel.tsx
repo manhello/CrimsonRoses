@@ -1,9 +1,10 @@
+
 import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
 interface ThreeDModelProps {
-  type: 'hat' | 'accessory' | 'tool' | 'clothing';
+  type: 'hat' | 'clothing';
   isHovered: boolean;
   index: number;
 }
@@ -27,8 +28,6 @@ export const ThreeDModel = ({ type, isHovered, index }: ThreeDModelProps) => {
   });
 
   const getModelByType = () => {
-    const commonMaterial = new THREE.MeshStandardMaterial();
-    
     switch (type) {
       case 'hat':
         return (
@@ -40,28 +39,6 @@ export const ThreeDModel = ({ type, isHovered, index }: ThreeDModelProps) => {
             <mesh position={[0, 0, 0]} castShadow receiveShadow>
               <cylinderGeometry args={[1.4, 1.4, 0.1, 16]} />
               <meshStandardMaterial color="#A855F7" metalness={0.5} roughness={0.4} />
-            </mesh>
-          </>
-        );
-      
-      case 'accessory':
-        return (
-          <mesh castShadow receiveShadow>
-            <torusGeometry args={[1, 0.3, 16, 32]} />
-            <meshStandardMaterial color="#06B6D4" metalness={0.8} roughness={0.2} />
-          </mesh>
-        );
-      
-      case 'tool':
-        return (
-          <>
-            <mesh position={[0, 0, 0]} castShadow receiveShadow>
-              <boxGeometry args={[0.3, 2, 0.3]} />
-              <meshStandardMaterial color="#EF4444" metalness={0.6} roughness={0.4} />
-            </mesh>
-            <mesh position={[0, 0.8, 0]} castShadow receiveShadow>
-              <boxGeometry args={[1.2, 0.3, 0.3]} />
-              <meshStandardMaterial color="#DC2626" metalness={0.8} roughness={0.2} />
             </mesh>
           </>
         );
