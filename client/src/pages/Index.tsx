@@ -5,6 +5,10 @@ import tailsImage from "@assets/image_1754251704736.png";
 import sonicImage from "@assets/image_1754250990366.png";
 import knucklesImage from "@assets/image_1754251533990.png";
 import shadowImage from "@assets/image_1754251612501.png";
+import hamsterImage from "@assets/image_1754252295184.png";
+import catHelmetImage from "@assets/image_1754252496917.png";
+import topHatImage from "@assets/image_1754252573882.png";
+import tailImage from "@assets/image_1754252708048.png";
 
 // Portfolio data
 const portfolioItems = [
@@ -42,27 +46,31 @@ const portfolioItems = [
 const portfolioItems2 = [
   {
     id: '5',
-    title: 'Example Item 1',
+    title: 'Chonki Valentines Hamster [GALAXY]',
     type: 'hat' as const,
-    description: 'Add your items here!',
+    description: 'A Sweet Chonki Hamster Filled With Lots Of Love!',
+    image: hamsterImage,
   },
   {
     id: '6',
-    title: 'Example Item 2',
-    type: 'clothing' as const,
-    description: 'Add your items here!',
+    title: 'Galactic Celestical Cat Space Helemt [CLOSED]',
+    type: 'hat' as const,
+    description: 'Beautiful Space Helmet Shimmering Of Sunset and beauty of stars.',
+    image: catHelmetImage,
   },
   {
     id: '7',
-    title: 'Example Item 3',
+    title: 'Luxurious Top Hat',
     type: 'hat' as const,
-    description: 'Add your items here!',
+    description: 'The Top Hat That Makes You Feel Like Royalty/Exclusive/Powerful/Evil',
+    image: topHatImage,
   },
   {
     id: '8',
-    title: 'Example Item 4',
+    title: 'Cute Cloudy Tail [Blue]',
     type: 'clothing' as const,
-    description: 'Add your items here!',
+    description: 'Why not have a gorgeous pretty Tail?!',
+    image: tailImage,
   },
 ];
 
@@ -318,18 +326,18 @@ const Index = () => {
     <div className="min-h-screen">
       <Hero />
       <PortfolioGallery 
-        title="Our Collection" 
-        description="Discover our collection of unique and high-quality UGC assets."
+        title="Crimson Hotel" 
+        description="Discover our collection of unique and high-quality UGC assets on the Crimson Hotel store!"
         items={portfolioItems}
       />
       <PortfolioGallery 
-        title="Featured Items" 
-        description="Check out our featured collection of premium UGC items."
+        title="Crimson's UGC Co." 
+        description="Check out our featured collection of premium UGC items on the Crimson's UGC Co. store!"
         items={portfolioItems2}
       />
       <PortfolioGallery 
-        title="Latest Releases" 
-        description="Explore our newest and most innovative UGC creations."
+        title="Crimson's Chibi Wonderland" 
+        description="Explore our newest chibi UGC creations on the Crimson's Chibi Wonderland store!"
         items={portfolioItems3}
       />
     </div>
