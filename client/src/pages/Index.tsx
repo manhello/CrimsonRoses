@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Play, Star } from "lucide-react";
 import tailsImage from "@assets/image_1754250752938.png";
+import sonicImage from "@assets/image_1754250990366.png";
 
 // Portfolio data
 const portfolioItems = [
@@ -14,24 +15,31 @@ const portfolioItems = [
   },
   {
     id: '2',
+    title: 'Sonic',
+    type: 'hat' as const,
+    description: 'HAVETO GO FAST',
+    image: sonicImage,
+  },
+  {
+    id: '3',
     title: 'Cosmic Wizard Hat',
     type: 'hat' as const,
     description: 'A mystical hat that glows with cosmic energy, perfect for magical adventures.',
   },
   {
-    id: '3',
+    id: '4',
     title: 'Emerald Armor',
     type: 'clothing' as const,
     description: 'Protective armor crafted from pure emerald crystals.',
   },
   {
-    id: '4',
+    id: '5',
     title: 'Shadow Mask',
     type: 'hat' as const,
     description: 'Mysterious mask that conceals the wearer in shadows.',
   },
   {
-    id: '5',
+    id: '6',
     title: 'Royal Cape',
     type: 'clothing' as const,
     description: 'Elegant cape fit for royalty, with golden trim.',
