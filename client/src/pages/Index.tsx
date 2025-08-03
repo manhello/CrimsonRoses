@@ -132,29 +132,25 @@ const PortfolioItem = ({
   index 
 }: PortfolioItemProps) => {
   return (
-    <div className={`
-      flex-shrink-0 w-80 h-96 card-cosmic rounded-2xl p-6 transition-all duration-500 
-      ${isHovered ? 'scale-110 shadow-2xl' : 'scale-100'}
-      hover:shadow-[0_0_30px_rgba(192,132,252,0.3)]
-    `}>
+    <div className="flex-shrink-0 w-80 h-96 card-cosmic rounded-2xl p-6 hover:shadow-[0_0_30px_rgba(192,132,252,0.3)]">
       {/* Image or Isometric View */}
       <div className="h-48 w-full mb-4 rounded-xl overflow-hidden bg-gradient-to-br from-secondary/30 to-secondary/10 relative">
         {image ? (
           <img 
             src={image} 
             alt={title}
-            className="w-full h-full object-contain transition-transform duration-500 hover:scale-105"
+            className="w-full h-full object-contain"
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center">
           {type === 'hat' ? (
-            <div className={`relative transition-all duration-500 ${isHovered ? 'scale-110' : 'scale-100'}`}>
+            <div className="relative">
               {/* Hat - Isometric View */}
               <div className="relative transform" style={{ transform: 'rotateX(25deg) rotateY(15deg)' }}>
                 {/* Hat brim */}
-                <div className={`w-20 h-4 bg-gradient-to-r from-red-600 to-red-800 rounded-full transform transition-colors duration-300 ${isHovered ? 'from-red-500 to-red-700' : ''}`} />
+                <div className="w-20 h-4 bg-gradient-to-r from-red-600 to-red-800 rounded-full transform" />
                 {/* Hat cone */}
-                <div className={`w-12 h-16 mx-auto -mt-2 bg-gradient-to-b from-red-500 to-red-900 transition-colors duration-300 ${isHovered ? 'from-red-400 to-red-800' : ''}`} 
+                <div className="w-12 h-16 mx-auto -mt-2 bg-gradient-to-b from-red-500 to-red-900" 
                      style={{ clipPath: 'polygon(20% 100%, 80% 100%, 50% 0%)' }} />
                 {/* Hat sparkles */}
                 <div className="absolute top-2 left-1/2 w-1 h-1 bg-red-300 rounded-full animate-pulse" />
@@ -162,14 +158,14 @@ const PortfolioItem = ({
               </div>
             </div>
           ) : (
-            <div className={`relative transition-all duration-500 ${isHovered ? 'scale-110' : 'scale-100'}`}>
+            <div className="relative">
               {/* Clothing - Isometric Chest Armor */}
               <div className="relative transform" style={{ transform: 'rotateX(15deg) rotateY(-10deg)' }}>
                 {/* Chest plate */}
-                <div className={`w-16 h-20 bg-gradient-to-br from-gray-300 to-gray-600 rounded-lg transition-colors duration-300 ${isHovered ? 'from-gray-200 to-gray-500' : ''}`} />
+                <div className="w-16 h-20 bg-gradient-to-br from-gray-300 to-gray-600 rounded-lg" />
                 {/* Shoulder guards */}
-                <div className={`absolute -top-2 -left-2 w-6 h-8 bg-gradient-to-br from-gray-400 to-gray-700 rounded-lg transition-colors duration-300 ${isHovered ? 'from-gray-300 to-gray-600' : ''}`} />
-                <div className={`absolute -top-2 -right-2 w-6 h-8 bg-gradient-to-br from-gray-400 to-gray-700 rounded-lg transition-colors duration-300 ${isHovered ? 'from-gray-300 to-gray-600' : ''}`} />
+                <div className="absolute -top-2 -left-2 w-6 h-8 bg-gradient-to-br from-gray-400 to-gray-700 rounded-lg" />
+                <div className="absolute -top-2 -right-2 w-6 h-8 bg-gradient-to-br from-gray-400 to-gray-700 rounded-lg" />
                 {/* Gem centerpiece */}
                 <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-gradient-to-br from-red-400 to-red-600 rounded-full animate-pulse" />
               </div>
@@ -200,28 +196,26 @@ const PortfolioGallery = ({ title = "Our Collection", description = "Discover ou
 
   useEffect(() => {
     const scrollContainer = scrollRef.current;
-    if (!scrollContainer || isPaused) return;
+    if (!scrollContainer) return;
 
     const scroll = () => {
       if (scrollContainer.scrollLeft >= (scrollContainer.scrollWidth - scrollContainer.clientWidth)) {
         scrollContainer.scrollLeft = 0;
       } else {
-        scrollContainer.scrollLeft += 2;
+        scrollContainer.scrollLeft += 1;
       }
     };
 
-    const interval = setInterval(scroll, 30);
+    const interval = setInterval(scroll, 20);
     return () => clearInterval(interval);
-  }, [isPaused]);
+  }, []);
 
   const handleMouseEnter = (itemId: string) => {
     setHoveredItem(itemId);
-    setIsPaused(true);
   };
 
   const handleMouseLeave = () => {
     setHoveredItem(null);
-    setIsPaused(false);
   };
 
   // Duplicate items for seamless loop
@@ -250,7 +244,7 @@ const PortfolioGallery = ({ title = "Our Collection", description = "Discover ou
             key={`${item.id}-${index}`}
             onMouseEnter={() => handleMouseEnter(item.id)}
             onMouseLeave={handleMouseLeave}
-            className="transition-transform duration-300"
+            className="flex-shrink-0"
           >
             <PortfolioItem
               {...item}
