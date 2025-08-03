@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Play, Star } from "lucide-react";
+import { ArrowDown, Play, Star, ExternalLink } from "lucide-react";
+import { SiRoblox } from "react-icons/si";
 import tailsImage from "@assets/image_1754251704736.png";
 import sonicImage from "@assets/image_1754250990366.png";
 import knucklesImage from "@assets/image_1754251533990.png";
@@ -189,7 +190,7 @@ const PortfolioItem = ({
 };
 
 // Portfolio Gallery Component
-const PortfolioGallery = ({ title = "Our Collection", description = "Discover our collection of unique and high-quality UGC assets.", items = portfolioItems }: { title?: string, description?: string, items?: typeof portfolioItems }) => {
+const PortfolioGallery = ({ title = "Our Collection", description = "Discover our collection of unique and high-quality UGC assets.", items = portfolioItems, storeUrl }: { title?: string, description?: string, items?: typeof portfolioItems, storeUrl?: string }) => {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [isPaused, setIsPaused] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -225,9 +226,23 @@ const PortfolioGallery = ({ title = "Our Collection", description = "Discover ou
     <section id={title === "Crimson Hotel" ? "portfolio" : undefined} className="py-16 overflow-hidden">
       <div className="container mx-auto px-4 mb-8">
         <div className="text-center space-y-4">
-          <h2 className="text-5xl font-bold">
-            <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent">{title}</span>
-          </h2>
+          <div className="flex items-center justify-center gap-4">
+            <h2 className="text-5xl font-bold">
+              <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent">{title}</span>
+            </h2>
+            {storeUrl && (
+              <a 
+                href={storeUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors duration-200 text-sm font-medium"
+              >
+                <SiRoblox className="w-5 h-5" />
+                Visit Store
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            )}
+          </div>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             {description}
           </p>
@@ -331,16 +346,19 @@ const Index = () => {
         title="Crimson Hotel" 
         description="Discover our collection of unique and high-quality UGC assets on the Crimson Hotel store!"
         items={portfolioItems}
+        storeUrl="https://www.roblox.com/communities/33801121/Crimson-s-Hotel#!/store"
       />
       <PortfolioGallery 
         title="Crimson's UGC Co." 
         description="Check out our featured collection of premium UGC items on the Crimson's UGC Co. store!"
         items={portfolioItems2}
+        storeUrl="https://www.roblox.com/communities/34821463/Crimson-UGC-CO#!/store"
       />
       <PortfolioGallery 
         title="Chibi Wonderland" 
         description="Explore our adorable collection of chibi characters and their stories."
         items={portfolioItems3}
+        storeUrl="https://www.roblox.com/communities/34215054/Crimson-s-Chibi-Wonderland#!/store"
       />
     </div>
   );
