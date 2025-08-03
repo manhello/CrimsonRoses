@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Play, Star } from "lucide-react";
-import tailsImage from "@assets/image_1754250752938.png";
+import tailsImage from "@assets/image_1754251704736.png";
 import sonicImage from "@assets/image_1754250990366.png";
 import knucklesImage from "@assets/image_1754251533990.png";
 import shadowImage from "@assets/image_1754251612501.png";
@@ -10,21 +10,21 @@ import shadowImage from "@assets/image_1754251612501.png";
 const portfolioItems = [
   {
     id: '1',
-    title: 'Miles Tails Prower',
+    title: 'Tails Buddy',
     type: 'hat' as const,
-    description: 'speedy',
+    description: 'Full Speed Ahead!',
     image: tailsImage,
   },
   {
     id: '2',
-    title: 'Sonic',
+    title: 'Sonic Buddy',
     type: 'hat' as const,
     description: 'HAVETO GO FAST',
     image: sonicImage,
   },
   {
     id: '3',
-    title: 'Knuckles',
+    title: 'Knuckles Buddy',
     type: 'hat' as const,
     description: 'How dare you attack me in my hour of sorrow!',
     image: knucklesImage,
