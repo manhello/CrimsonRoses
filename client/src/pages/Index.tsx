@@ -9,6 +9,10 @@ import hamsterImage from "@assets/image_1754252295184.png";
 import catHelmetImage from "@assets/image_1754252496917.png";
 import topHatImage from "@assets/image_1754252573882.png";
 import tailImage from "@assets/image_1754252708048.png";
+import phainonImage from "@assets/image_1754252924669.png";
+import mavuikaImage from "@assets/image_1754253005335.png";
+import ororonImage from "@assets/image_1754253071028.png";
+import neuvilletteImage from "@assets/image_1754253129742.png";
 
 // Portfolio data
 const portfolioItems = [
@@ -78,27 +82,31 @@ const portfolioItems2 = [
 const portfolioItems3 = [
   {
     id: '9',
-    title: 'Example Item A',
+    title: 'Chibi Phainon The Deliverer',
     type: 'hat' as const,
-    description: 'Add your items here!',
+    description: 'Hey there, partner! Must\'ve been tough for you lately... Sure enough, you\'ve been writing your own epic in Amphoreus. Let\'s keep on chasing that flame together, you and me!',
+    image: phainonImage,
   },
   {
     id: '10',
-    title: 'Example Item B',
-    type: 'clothing' as const,
-    description: 'Add your items here!',
+    title: 'The Pyro Archon Mavuika',
+    type: 'hat' as const,
+    description: 'With the flames to guide us across time, we took a land shrouded in darkness, and used our own blood and tears to forge it into a home. Now, our journey continues, and a new chapter awaits. As the current Pyro Archon, allow me, Mavuika, to light your way forward.',
+    image: mavuikaImage,
   },
   {
     id: '11',
-    title: 'Example Item C',
+    title: 'Veggie Fan Chibi Ororon',
     type: 'hat' as const,
-    description: 'Add your items here!',
+    description: 'I just like to see what every seed grows up to be, so I end up with a lot of produce. As long as my vegetables wind up in the stomach of someone who enjoys them, that\'s all that matters.',
+    image: ororonImage,
   },
   {
     id: '12',
-    title: 'Example Item D',
-    type: 'clothing' as const,
-    description: 'Add your items here!',
+    title: 'The Chief Justice Chibi Neuvillette',
+    type: 'hat' as const,
+    description: 'Though we live in a world of disarray, I shall undertake to restore all that has been broken.',
+    image: neuvilletteImage,
   },
 ];
 
@@ -336,8 +344,8 @@ const Index = () => {
         items={portfolioItems2}
       />
       <PortfolioGallery 
-        title="Crimson's Chibi Wonderland" 
-        description="Explore our newest chibi UGC creations on the Crimson's Chibi Wonderland store!"
+        title="Chibi Wonderland" 
+        description="Explore our adorable collection of chibi characters and their stories."
         items={portfolioItems3}
       />
     </div>
