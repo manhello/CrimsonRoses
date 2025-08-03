@@ -1,6 +1,5 @@
 import { useRef } from 'react';
-import { useFrame, useThree } from '@react-three/fiber';
-import { Sphere, Box, Torus, Cylinder } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
 interface ThreeDModelProps {
@@ -11,8 +10,7 @@ interface ThreeDModelProps {
 
 export const ThreeDModel = ({ type, isHovered, index }: ThreeDModelProps) => {
   const groupRef = useRef<THREE.Group>(null);
-  const { viewport } = useThree();
-  
+
   useFrame((state) => {
     if (groupRef.current) {
       // Gentle rotation
@@ -29,50 +27,59 @@ export const ThreeDModel = ({ type, isHovered, index }: ThreeDModelProps) => {
   });
 
   const getModelByType = () => {
+    const commonMaterial = new THREE.MeshStandardMaterial();
+    
     switch (type) {
       case 'hat':
         return (
           <>
-            <Cylinder args={[1, 1.2, 0.8, 16]} position={[0, 0.4, 0]} castShadow receiveShadow>
+            <mesh position={[0, 0.4, 0]} castShadow receiveShadow>
+              <cylinderGeometry args={[1, 1.2, 0.8, 16]} />
               <meshStandardMaterial color="#8B5CF6" metalness={0.7} roughness={0.3} />
-            </Cylinder>
-            <Cylinder args={[1.4, 1.4, 0.1, 16]} position={[0, 0, 0]} castShadow receiveShadow>
+            </mesh>
+            <mesh position={[0, 0, 0]} castShadow receiveShadow>
+              <cylinderGeometry args={[1.4, 1.4, 0.1, 16]} />
               <meshStandardMaterial color="#A855F7" metalness={0.5} roughness={0.4} />
-            </Cylinder>
+            </mesh>
           </>
         );
       
       case 'accessory':
         return (
-          <Torus args={[1, 0.3, 16, 32]} castShadow receiveShadow>
+          <mesh castShadow receiveShadow>
+            <torusGeometry args={[1, 0.3, 16, 32]} />
             <meshStandardMaterial color="#06B6D4" metalness={0.8} roughness={0.2} />
-          </Torus>
+          </mesh>
         );
       
       case 'tool':
         return (
           <>
-            <Box args={[0.3, 2, 0.3]} position={[0, 0, 0]} castShadow receiveShadow>
+            <mesh position={[0, 0, 0]} castShadow receiveShadow>
+              <boxGeometry args={[0.3, 2, 0.3]} />
               <meshStandardMaterial color="#EF4444" metalness={0.6} roughness={0.4} />
-            </Box>
-            <Box args={[1.2, 0.3, 0.3]} position={[0, 0.8, 0]} castShadow receiveShadow>
+            </mesh>
+            <mesh position={[0, 0.8, 0]} castShadow receiveShadow>
+              <boxGeometry args={[1.2, 0.3, 0.3]} />
               <meshStandardMaterial color="#DC2626" metalness={0.8} roughness={0.2} />
-            </Box>
+            </mesh>
           </>
         );
       
       case 'clothing':
         return (
-          <Sphere args={[1, 32, 32]} castShadow receiveShadow>
+          <mesh castShadow receiveShadow>
+            <sphereGeometry args={[1, 32, 32]} />
             <meshStandardMaterial color="#10B981" metalness={0.4} roughness={0.6} />
-          </Sphere>
+          </mesh>
         );
       
       default:
         return (
-          <Box args={[1, 1, 1]} castShadow receiveShadow>
+          <mesh castShadow receiveShadow>
+            <boxGeometry args={[1, 1, 1]} />
             <meshStandardMaterial color="#6B7280" />
-          </Box>
+          </mesh>
         );
     }
   };

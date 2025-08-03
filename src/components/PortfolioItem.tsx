@@ -44,22 +44,22 @@ export const PortfolioItem = ({
     `}>
       {/* 3D Canvas */}
       <div className="h-48 w-full mb-4 rounded-xl overflow-hidden bg-secondary/20">
-        <Canvas>
-          <PerspectiveCamera makeDefault position={[0, 0, 5]} />
+        <Canvas
+          camera={{ position: [0, 0, 5], fov: 75 }}
+          dpr={[1, 2]}
+          shadows
+        >
           <ambientLight intensity={0.4} />
           <directionalLight 
             position={[10, 10, 5]} 
             intensity={1} 
             castShadow
-            shadow-mapSize-width={2048}
-            shadow-mapSize-height={2048}
           />
-          <pointLight position={[-10, -10, -10]} intensity={0.5} color="#06B6D4" />
-          <pointLight position={[10, 10, 10]} intensity={0.5} color="#8B5CF6" />
+          <pointLight position={[-10, -10, -10]} intensity={0.5} />
+          <pointLight position={[10, 10, 10]} intensity={0.5} />
           
           <ThreeDModel type={type} isHovered={isHovered} index={index} />
           
-          <Environment preset="studio" />
           <OrbitControls 
             enableZoom={false}
             enablePan={false}
