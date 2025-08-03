@@ -19,7 +19,7 @@ const portfolioItems = [
     id: '2',
     title: 'Sonic Buddy',
     type: 'hat' as const,
-    description: 'HAVETO GO FAST',
+    description: 'Have to go fast!',
     image: sonicImage,
   },
   {
@@ -35,6 +35,62 @@ const portfolioItems = [
     type: 'hat' as const,
     description: 'Poetry is an echo, asking a shadow to dance.',
     image: shadowImage,
+  },
+];
+
+// Portfolio data for second row
+const portfolioItems2 = [
+  {
+    id: '5',
+    title: 'Example Item 1',
+    type: 'hat' as const,
+    description: 'Add your items here!',
+  },
+  {
+    id: '6',
+    title: 'Example Item 2',
+    type: 'clothing' as const,
+    description: 'Add your items here!',
+  },
+  {
+    id: '7',
+    title: 'Example Item 3',
+    type: 'hat' as const,
+    description: 'Add your items here!',
+  },
+  {
+    id: '8',
+    title: 'Example Item 4',
+    type: 'clothing' as const,
+    description: 'Add your items here!',
+  },
+];
+
+// Portfolio data for third row
+const portfolioItems3 = [
+  {
+    id: '9',
+    title: 'Example Item A',
+    type: 'hat' as const,
+    description: 'Add your items here!',
+  },
+  {
+    id: '10',
+    title: 'Example Item B',
+    type: 'clothing' as const,
+    description: 'Add your items here!',
+  },
+  {
+    id: '11',
+    title: 'Example Item C',
+    type: 'hat' as const,
+    description: 'Add your items here!',
+  },
+  {
+    id: '12',
+    title: 'Example Item D',
+    type: 'clothing' as const,
+    description: 'Add your items here!',
   },
 ];
 
@@ -121,7 +177,7 @@ const PortfolioItem = ({
 };
 
 // Portfolio Gallery Component
-const PortfolioGallery = () => {
+const PortfolioGallery = ({ title = "Our Collection", description = "Discover our collection of unique and high-quality UGC assets.", items = portfolioItems }: { title?: string, description?: string, items?: typeof portfolioItems }) => {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [isPaused, setIsPaused] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -153,17 +209,17 @@ const PortfolioGallery = () => {
   };
 
   // Duplicate items for seamless loop
-  const duplicatedItems = [...portfolioItems, ...portfolioItems];
+  const duplicatedItems = [...items, ...items];
 
   return (
-    <section id="portfolio" className="py-16 overflow-hidden">
+    <section className="py-16 overflow-hidden">
       <div className="container mx-auto px-4 mb-8">
         <div className="text-center space-y-4">
           <h2 className="text-5xl font-bold">
-            <span className="text-gradient">Our Collection</span>
+            <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent">{title}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Discover our collection of unique and high-quality UGC assets.
+            {description}
           </p>
         </div>
       </div>
@@ -261,7 +317,21 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Hero />
-      <PortfolioGallery />
+      <PortfolioGallery 
+        title="Our Collection" 
+        description="Discover our collection of unique and high-quality UGC assets."
+        items={portfolioItems}
+      />
+      <PortfolioGallery 
+        title="Featured Items" 
+        description="Check out our featured collection of premium UGC items."
+        items={portfolioItems2}
+      />
+      <PortfolioGallery 
+        title="Latest Releases" 
+        description="Explore our newest and most innovative UGC creations."
+        items={portfolioItems3}
+      />
     </div>
   );
 };
