@@ -1,11 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { Canvas, extend } from '@react-three/fiber';
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Play, Star } from "lucide-react";
-import { Mesh, BoxGeometry, ConeGeometry, MeshStandardMaterial } from 'three';
-
-// Extend React Three Fiber with Three.js objects
-extend({ Mesh, BoxGeometry, ConeGeometry, MeshStandardMaterial });
+import { ArrowDown, Play, Star, Box, Cone } from "lucide-react";
 
 // Portfolio data
 const portfolioItems = [
@@ -35,43 +30,21 @@ const portfolioItems = [
   },
 ];
 
-// 3D Model Component
-const ThreeDModel = ({ type, isHovered, index }: { type: 'hat' | 'clothing', isHovered: boolean, index: number }) => {
-  const meshRef = useRef<any>();
-
-  useEffect(() => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x = 0;
-      meshRef.current.rotation.y = index * 0.5;
-    }
-  }, [index]);
-
-  const getGeometry = () => {
-    if (type === 'hat') {
-      return (
-        <>
-          <coneGeometry args={[1, 2, 8]} />
-          <meshStandardMaterial color={isHovered ? "#8B5CF6" : "#6366F1"} />
-        </>
-      );
-    } else {
-      return (
-        <>
-          <boxGeometry args={[1.5, 2, 0.3]} />
-          <meshStandardMaterial color={isHovered ? "#10B981" : "#059669"} />
-        </>
-      );
-    }
-  };
-
+// Simple Icon Component (replacing 3D for now)
+const ItemIcon = ({ type, isHovered }: { type: 'hat' | 'clothing', isHovered: boolean }) => {
+  const Icon = type === 'hat' ? Cone : Box;
+  
   return (
-    <mesh 
-      ref={meshRef}
-      scale={isHovered ? 1.2 : 1}
-      rotation={[0, 0, 0]}
-    >
-      {getGeometry()}
-    </mesh>
+    <div className={`h-48 w-full mb-4 rounded-xl overflow-hidden bg-secondary/20 flex items-center justify-center transition-all duration-500 ${isHovered ? 'scale-110' : 'scale-100'}`}>
+      <Icon 
+        size={80} 
+        className={`transition-colors duration-300 ${
+          type === 'hat' 
+            ? (isHovered ? 'text-purple-400' : 'text-blue-500')
+            : (isHovered ? 'text-emerald-400' : 'text-emerald-600')
+        }`}
+      />
+    </div>
   );
 };
 
@@ -98,25 +71,7 @@ const PortfolioItem = ({
       ${isHovered ? 'scale-110 shadow-2xl' : 'scale-100'}
       hover:shadow-[0_0_30px_rgba(192,132,252,0.3)]
     `}>
-      {/* 3D Canvas */}
-      <div className="h-48 w-full mb-4 rounded-xl overflow-hidden bg-secondary/20">
-        <Canvas
-          camera={{ position: [0, 0, 5], fov: 75 }}
-          dpr={[1, 2]}
-          shadows
-        >
-          <ambientLight intensity={0.4} />
-          <directionalLight 
-            position={[10, 10, 5]} 
-            intensity={1} 
-            castShadow
-          />
-          <pointLight position={[-10, -10, -10]} intensity={0.5} />
-          <pointLight position={[10, 10, 10]} intensity={0.5} />
-          
-          <ThreeDModel type={type} isHovered={isHovered} index={index} />
-        </Canvas>
-      </div>
+      <ItemIcon type={type} isHovered={isHovered} />
 
       {/* Content */}
       <div className="space-y-3">
