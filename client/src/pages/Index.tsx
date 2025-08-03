@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Play, Star } from "lucide-react";
+import tailsImage from "@assets/image_1754250752938.png";
 
 // Portfolio data
 const portfolioItems = [
@@ -9,7 +10,7 @@ const portfolioItems = [
     title: 'Miles Tails Prower',
     type: 'hat' as const,
     description: 'speedy',
-    image: '/attached_assets/image_1754250752938.png',
+    image: tailsImage,
   },
   {
     id: '2',
