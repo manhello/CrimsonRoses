@@ -6,31 +6,34 @@ import { ArrowDown, Play, Star } from "lucide-react";
 const portfolioItems = [
   {
     id: '1',
+    title: 'Miles Tails Prower',
+    type: 'hat' as const,
+    description: 'speedy',
+    image: '/attached_assets/image_1754250752938.png',
+  },
+  {
+    id: '2',
     title: 'Cosmic Wizard Hat',
     type: 'hat' as const,
     description: 'A mystical hat that glows with cosmic energy, perfect for magical adventures.',
-    image: '/images/wizard-hat.png', // Add your image path here
   },
   {
-    id: '4',
+    id: '3',
     title: 'Emerald Armor',
     type: 'clothing' as const,
     description: 'Protective armor crafted from pure emerald crystals.',
-    image: '/images/emerald-armor.png', // Add your image path here
   },
   {
-    id: '5',
+    id: '4',
     title: 'Shadow Mask',
     type: 'hat' as const,
     description: 'Mysterious mask that conceals the wearer in shadows.',
-    image: '/images/shadow-mask.png', // Add your image path here
   },
   {
-    id: '8',
+    id: '5',
     title: 'Royal Cape',
     type: 'clothing' as const,
     description: 'Elegant cape fit for royalty, with golden trim.',
-    image: '/images/royal-cape.png', // Add your image path here
   },
 ];
 
