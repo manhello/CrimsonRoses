@@ -14,6 +14,7 @@ import phainonImage from "@assets/image_1754252924669.png";
 import mavuikaImage from "@assets/image_1754253005335.png";
 import ororonImage from "@assets/image_1754253071028.png";
 import neuvilletteImage from "@assets/image_1754253129742.png";
+import rosesIcon from "@assets/image_1754254394700.png";
 
 // Portfolio data
 const portfolioItems = [
@@ -292,8 +293,8 @@ const Hero = () => {
       <div className="text-center space-y-8 max-w-4xl mx-auto relative z-10 animate-fade-in-up">
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-900/20 backdrop-blur-sm border border-red-500/30 rounded-full text-sm text-foreground">
-          <Star className="w-4 h-4 text-red-400 animate-glow" />
-          <span>The go to spot for UGCs</span>
+          <img src={rosesIcon} alt="Crimson Roses" className="w-4 h-4 animate-glow" />
+          <span>Your favorite UGC developer</span>
         </div>
 
         {/* Main heading */}
