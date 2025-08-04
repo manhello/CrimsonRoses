@@ -341,7 +341,7 @@ const Hero = () => {
         {/* Scroll indicator */}
         <div className="pt-20">
           <div className="flex flex-col items-center gap-2 animate-bounce">
-            <span className="text-sm text-muted-foreground fc-orange-400">Scroll to explore</span>
+            <span className="text-sm md:text-2xl text-orange-300 max-w-2xl mx-auto leading-relaxed">Scroll to explore</span>
             <ArrowDown className="w-5 h-5 text-accent" />
           </div>
         </div>
