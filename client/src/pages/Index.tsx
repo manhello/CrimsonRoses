@@ -224,7 +224,7 @@ const PortfolioGallery = ({ title = "Our Collection", description = "Discover ou
   const duplicatedItems = [...items, ...items];
 
   return (
-    <section id={title === "Crimson Hotel" ? "portfolio" : undefined} className="py-16 overflow-hidden">
+    <section id={title === "Crimson Hotel" ? "portfolio" : undefined} className="py-16 overflow-hidden bg-blue-400">
       <div className="container mx-auto px-4 mb-8">
         <div className="text-center space-y-4">
           <div className="flex items-center justify-center gap-4">
@@ -282,12 +282,12 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden px-4 ">
+    <section className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden px-4 bg-blue-400 ">
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-blue-500/10 rounded-full animate-float blur-xl"></div>
-        <div className="absolute bottom-32 right-32 w-24 h-24 bg-blue-600/20 rounded-full animate-float delay-1000 blur-xl"></div>
-        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-blue-500/10 rounded-full animate-cosmic-rotate blur-lg"></div>
+        <div className="absolute top-20 left-20 w-32 h-32 bg-blue-100/70 rounded-full animate-float blur-xl"></div>
+        <div className="absolute bottom-32 right-32 w-24 h-24 bg-blue-200/70 rounded-full animate-float delay-1000 blur-xl"></div>
+        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-blue-300/70 rounded-full animate-cosmic-rotate blur-lg"></div>
       </div>
 
       <div className="text-center space-y-8 max-w-4xl mx-auto relative z-10 animate-fade-in-up">
