@@ -134,7 +134,7 @@ const PortfolioItem = ({
   index 
 }: PortfolioItemProps) => {
   return (
-    <div className="flex-shrink-0 w-80 h-96 card-cosmic rounded-2xl p-6 hover:shadow-[0_0_30px_rgba(59,130,246,0.4)]">
+    <div className="flex-shrink-0 w-80 h-96 card-cosmic rounded-2xl p-6 hover:shadow-[0_0_40px_rgba(59,130,246,0.5)] transition-all duration-300">
       {/* Image or Isometric View */}
       <div className="h-48 w-full mb-4 rounded-xl overflow-hidden bg-gradient-to-br from-secondary/30 to-secondary/10 relative">
         {image ? (
@@ -252,7 +252,7 @@ const PortfolioGallery = ({ title = "Our Collection", description = "Discover ou
 
       <div 
         ref={scrollRef}
-        className="flex gap-8 px-8 overflow-x-hidden"
+        className="flex gap-12 px-12 overflow-x-hidden"
         style={{ width: 'calc(100% + 400px)' }}
       >
         {duplicatedItems.map((item, index) => (
@@ -260,7 +260,7 @@ const PortfolioGallery = ({ title = "Our Collection", description = "Discover ou
             key={`${item.id}-${index}`}
             onMouseEnter={() => handleMouseEnter(item.id)}
             onMouseLeave={handleMouseLeave}
-            className="flex-shrink-0"
+            className="flex-shrink-0 py-4 px-2"
           >
             <PortfolioItem
               {...item}
