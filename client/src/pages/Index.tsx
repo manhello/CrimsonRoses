@@ -134,7 +134,7 @@ const PortfolioItem = ({
   index 
 }: PortfolioItemProps) => {
   return (
-    <div className="flex-shrink-0 w-80 h-96 card-cosmic rounded-2xl p-6 hover:shadow-[0_0_40px_rgba(59,130,246,0.5)] transition-all duration-300">
+    <div className="flex-shrink-0 w-80 h-96 bg-blue-480 backdrop-blur-md rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
       {/* Image or Isometric View */}
       <div className="h-48 w-full mb-4 rounded-xl overflow-hidden bg-gradient-to-br from-secondary/30 to-secondary/10 relative">
         {image ? (
@@ -284,7 +284,7 @@ const Hero = () => {
   return (
     <section className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden px-4 bg-blue-400 ">
       {/* Animated background elements */}
-      <div className="absolute inset-0 opacity-20">
+      <div className="absolute inset-0 opacity-80">
         <div className="absolute top-20 left-20 w-32 h-32 bg-blue-100/70 rounded-full animate-float blur-xl"></div>
         <div className="absolute bottom-32 right-32 w-24 h-24 bg-blue-200/70 rounded-full animate-float delay-1000 blur-xl"></div>
         <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-blue-300/70 rounded-full animate-cosmic-rotate blur-lg"></div>
