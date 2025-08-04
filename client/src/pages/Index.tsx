@@ -282,12 +282,12 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden px-4">
+    <section className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden px-4 ">
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-blue-500/15 rounded-full animate-float blur-xl"></div>
-        <div className="absolute bottom-32 right-32 w-24 h-24 bg-blue-400/10 rounded-full animate-float delay-1000 blur-xl"></div>
-        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-blue-600/20 rounded-full animate-cosmic-rotate blur-lg"></div>
+        <div className="absolute top-20 left-20 w-32 h-32 bg-blue-500/10 rounded-full animate-float blur-xl"></div>
+        <div className="absolute bottom-32 right-32 w-24 h-24 bg-blue-600/20 rounded-full animate-float delay-1000 blur-xl"></div>
+        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-blue-500/10 rounded-full animate-cosmic-rotate blur-lg"></div>
       </div>
 
       <div className="text-center space-y-8 max-w-4xl mx-auto relative z-10 animate-fade-in-up">
@@ -323,7 +323,7 @@ const Hero = () => {
           </Button>
           <Button 
             asChild
-            className="px-8 py-6 text-lg rounded-full bg-blue-600 hover:bg-blue-700 text-white"
+            className="btn-neon px-8 py-6 text-lg rounded-full"
             size="lg"
           >
             <a 
@@ -341,7 +341,7 @@ const Hero = () => {
         {/* Scroll indicator */}
         <div className="pt-20">
           <div className="flex flex-col items-center gap-2 animate-bounce">
-            <span className="text-sm text-muted-foreground">Scroll to explore</span>
+            <span className="text-sm text-muted-foreground fc-orange-400">Scroll to explore</span>
             <ArrowDown className="w-5 h-5 text-accent" />
           </div>
         </div>
