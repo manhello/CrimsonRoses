@@ -8,26 +8,26 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Blue, Yellow, Orange color palette */
+    /* Clean Blue, Orange, Yellow palette */
     --background: 220 50% 6%;
-    --foreground: 210 40% 98%;
+    --foreground: 25 100% 65%;
 
     --card: 220 45% 8%;
-    --card-foreground: 210 40% 98%;
+    --card-foreground: 25 100% 65%;
 
     --popover: 220 45% 8%;
-    --popover-foreground: 210 40% 98%;
+    --popover-foreground: 25 100% 65%;
 
-    --primary: 210 100% 60%;
+    --primary: 210 100% 55%;
     --primary-foreground: 220 50% 6%;
 
     --secondary: 220 30% 15%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary-foreground: 25 100% 65%;
 
     --muted: 220 30% 15%;
     --muted-foreground: 220 20% 65%;
 
-    --accent: 45 100% 55%;
+    --accent: 45 100% 60%;
     --accent-foreground: 220 50% 6%;
 
     --destructive: 25 100% 60%;
@@ -35,17 +35,18 @@ All colors MUST be HSL.
 
     --border: 220 30% 18%;
     --input: 220 30% 15%;
-    --ring: 210 100% 60%;
+    --ring: 210 100% 55%;
 
-    /* Blue, Yellow, Orange gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(210 100% 60%) 0%, hsl(45 100% 55%) 100%);
-    --gradient-secondary: linear-gradient(135deg, hsl(220 50% 6%) 0%, hsl(220 30% 15%) 100%);
-    --gradient-cosmic: linear-gradient(135deg, hsl(220 60% 10%) 0%, hsl(220 50% 6%) 50%, hsl(25 100% 15%) 100%);
+    /* Clean gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 55%) 0%, hsl(210 90% 45%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(220 50% 6%) 0%, hsl(220 40% 12%) 100%);
+    --gradient-cosmic: linear-gradient(135deg, hsl(220 60% 8%) 0%, hsl(220 50% 6%) 100%);
+    --gradient-button: linear-gradient(135deg, hsl(45 100% 60%) 0%, hsl(45 90% 50%) 100%);
     
-    /* Shadows and effects */
-    --shadow-neon: 0 0 20px hsl(45 100% 55% / 0.4);
-    --shadow-blue: 0 0 20px hsl(210 100% 60% / 0.4);
-    --shadow-cosmic: 0 10px 40px hsl(210 100% 60% / 0.2);
+    /* Clean shadows */
+    --shadow-blue: 0 0 20px hsl(210 100% 55% / 0.3);
+    --shadow-yellow: 0 0 20px hsl(45 100% 60% / 0.3);
+    --shadow-orange: 0 0 20px hsl(25 100% 65% / 0.3);
 
     --radius: 0.75rem;
 
@@ -127,14 +128,17 @@ All colors MUST be HSL.
   }
 
   .btn-neon {
-    background: var(--gradient-primary);
-    box-shadow: var(--shadow-neon);
+    background: var(--gradient-button);
+    color: hsl(var(--accent-foreground));
+    box-shadow: var(--shadow-yellow);
     transition: all 0.3s ease;
+    border: none;
   }
 
   .btn-neon:hover {
-    box-shadow: var(--shadow-neon), 0 0 30px hsl(var(--accent) / 0.6);
+    box-shadow: var(--shadow-yellow), 0 0 30px hsl(45 100% 60% / 0.4);
     transform: translateY(-2px);
+    background: linear-gradient(135deg, hsl(45 100% 65%) 0%, hsl(45 95% 55%) 100%);
   }
   
   .clip-triangle {

@@ -176,15 +176,15 @@ const PortfolioItem = ({
           </div>
         )}
         {/* Item type indicator */}
-        <div className="absolute top-2 right-2 text-xs text-muted-foreground bg-black/20 px-2 py-1 rounded">
+        <div className="absolute top-2 right-2 text-xs text-orange-400 bg-black/30 px-2 py-1 rounded">
           {type === 'hat' ? 'HAT' : 'ARMOR'}
         </div>
       </div>
 
       {/* Content */}
       <div className="space-y-3">
-        <h3 className="text-xl font-bold text-foreground line-clamp-1">{title}</h3>
-        <p className="text-muted-foreground text-sm line-clamp-2">{description}</p>
+        <h3 className="text-xl font-bold text-orange-400 line-clamp-1">{title}</h3>
+        <p className="text-orange-300/80 text-sm line-clamp-2">{description}</p>
       </div>
     </div>
   );
@@ -229,14 +229,14 @@ const PortfolioGallery = ({ title = "Our Collection", description = "Discover ou
         <div className="text-center space-y-4">
           <div className="flex items-center justify-center gap-4">
             <h2 className="text-5xl font-bold">
-              <span className="bg-gradient-to-r from-blue-400 via-yellow-500 to-orange-500 bg-clip-text text-transparent">{title}</span>
+              <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">{title}</span>
             </h2>
             {storeUrl && (
               <a 
                 href={storeUrl} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 text-sm font-medium"
+                className="flex items-center gap-2 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-black rounded-lg transition-colors duration-200 text-sm font-medium"
               >
                 <SiRoblox className="w-5 h-5" />
                 Visit Store
@@ -244,7 +244,7 @@ const PortfolioGallery = ({ title = "Our Collection", description = "Discover ou
               </a>
             )}
           </div>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-orange-300 max-w-2xl mx-auto">
             {description}
           </p>
         </div>
@@ -285,28 +285,28 @@ const Hero = () => {
     <section className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden px-4">
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-blue-500/20 rounded-full animate-float blur-xl"></div>
-        <div className="absolute bottom-32 right-32 w-24 h-24 bg-yellow-500/20 rounded-full animate-float delay-1000 blur-xl"></div>
-        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-orange-500/20 rounded-full animate-cosmic-rotate blur-lg"></div>
+        <div className="absolute top-20 left-20 w-32 h-32 bg-blue-500/15 rounded-full animate-float blur-xl"></div>
+        <div className="absolute bottom-32 right-32 w-24 h-24 bg-blue-400/10 rounded-full animate-float delay-1000 blur-xl"></div>
+        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-blue-600/20 rounded-full animate-cosmic-rotate blur-lg"></div>
       </div>
 
       <div className="text-center space-y-8 max-w-4xl mx-auto relative z-10 animate-fade-in-up">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-900/20 backdrop-blur-sm border border-blue-500/30 rounded-full text-sm text-foreground">
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-900/30 backdrop-blur-sm border border-blue-500/40 rounded-full text-sm">
           <img src={rosesIcon} alt="Crimson Roses" className="w-4 h-4 animate-glow" />
-          <span>Your favorite UGC developer</span>
+          <span className="text-orange-400">Your favorite UGC developer</span>
         </div>
 
         {/* Main heading */}
         <div className="space-y-4">
           <h1 className="text-6xl md:text-8xl font-bold tracking-tight">
-            <span className="bg-gradient-to-r from-blue-400 via-yellow-500 to-orange-500 bg-clip-text text-transparent glow-text">Crimson</span>
+            <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent glow-text">Crimson</span>
             <br />
-            <span className="text-white">Roses</span>
+            <span className="text-orange-300">Roses</span>
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-orange-300 max-w-2xl mx-auto leading-relaxed">
             Developing premium UGC assets for our followers.
-
+            <br />
             Take a look at our collection!
           </p>
         </div>
@@ -323,7 +323,7 @@ const Hero = () => {
           </Button>
           <Button 
             asChild
-            className="px-8 py-6 text-lg rounded-full bg-orange-600 hover:bg-orange-700 text-white"
+            className="px-8 py-6 text-lg rounded-full bg-blue-600 hover:bg-blue-700 text-white"
             size="lg"
           >
             <a 
@@ -348,7 +348,7 @@ const Hero = () => {
       </div>
 
       {/* Grid pattern overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none"></div>
     </section>
   );
 };
